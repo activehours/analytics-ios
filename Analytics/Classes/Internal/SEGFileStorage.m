@@ -142,12 +142,9 @@
     NSData *data = [self dataForKey:key];
     if (data) {
         BOOL needsConversion = NO;
-        id json = [self jsonFromData:data needsConversion:&needsConversion];
+        result = [self jsonFromData:data needsConversion:&needsConversion];
         if (needsConversion) {
             [self setJSON:result forKey:key];
-            result = @{key: result};
-        } else {
-            result = json;
         }
     }
     return result;
