@@ -3,6 +3,7 @@
 [![Version](https://img.shields.io/cocoapods/v/Analytics.svg?style=flat)](https://cocoapods.org//pods/Analytics)
 [![License](https://img.shields.io/cocoapods/l/Analytics.svg?style=flat)](http://cocoapods.org/pods/Analytics)
 [![codecov](https://codecov.io/gh/segmentio/analytics-ios/branch/master/graph/badge.svg)](https://codecov.io/gh/segmentio/analytics-ios)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Factivehours%2Fanalytics-ios.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Factivehours%2Fanalytics-ios?ref=badge_shield)
 
 analytics-ios is an iOS client for Segment.
 
@@ -73,3 +74,7 @@ Refer to the Quickstart documentation at [https://segment.com/docs/libraries/ios
 ## Documentation
 
 More detailed documentation is available at [https://segment.com/docs/libraries/ios](https://segment.com/docs/libraries/ios/).
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Factivehours%2Fanalytics-ios.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Factivehours%2Fanalytics-ios?ref=badge_large)
