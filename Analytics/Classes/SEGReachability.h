@@ -64,7 +64,7 @@ typedef void (^SEGNetworkReachable)(SEGReachability *reachability);
 typedef void (^SEGNetworkUnreachable)(SEGReachability *reachability);
 
 
-NS_SWIFT_NAME(Reachability)
+NS_SWIFT_NAME(SEGReachability)
 @interface SEGReachability : NSObject
 
 @property (nonatomic, copy, nullable) SEGNetworkReachable reachableBlock;
