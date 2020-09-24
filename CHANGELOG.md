@@ -1,5 +1,64 @@
 Change Log
 ==========
+Version 4.0.5 (pre-release) (28 August, 2020)
+-----------------------------
+* [Fix](https://github.com/segmentio/analytics-ios/pull/937) Fixed issue where non-serializable types would get into payload.
+* [Fix](https://github.com/segmentio/analytics-ios/pull/931) Fixed double device payload.
+* [New](https://github.com/segmentio/analytics-ios/pull/930) Deprecated configuration access and updated associated tests.
+* [Fix](https://github.com/segmentio/analytics-ios/pull/925) Disregard payloads that fail conversion from plist to json.
+* [New](https://github.com/segmentio/analytics-ios/pull/922) Added Swift and Carthage badging.
+
+Version 4.0.4 (pre-release) (14 July, 2020)
+-----------------------------
+* [New](https://github.com/segmentio/analytics-ios/pull/918) Added MacOS support.
+* [Fix](https://github.com/segmentio/analytics-ios/pull/921) Fixed SEGLog permissions.
+* [Fix](https://github.com/segmentio/analytics-ios/pull/920) Adopted Swift 5 syntax in tests. Removed SwiftTryCatch dependency for tests. Fixed deadlock from #916.
+
+Version 4.0.3 (pre-release) (6 July, 2020)
+-----------------------------
+* [Fix](https://github.com/segmentio/analytics-ios/pull/917) Fixed an issue with old traits overwriting new traits.
+* [New](https://github.com/segmentio/analytics-ios/pull/915) Added full example flow with Swift Package Manager compatibility.
+* [Fix](https://github.com/segmentio/analytics-ios/pull/914) Fix SwiftUI previews in macOS Catalyst builds.
+
+Version 4.0.2 (pre-release) (25 June, 2020)
+-----------------------------
+* [New](https://github.com/segmentio/analytics-ios/pull/913) Separate public utils from private utils appropriately.
+* [New](https://github.com/segmentio/analytics-ios/pull/912) Payload Info & Traits Fixes.
+* [New](https://github.com/segmentio/analytics-ios/pull/911) Updated SPM for code coverage compatibility.
+* [New](https://github.com/segmentio/analytics-ios/pull/909) Removed Quick and Nimble, updated unit tests.
+
+Version 4.0.1 (pre-release) (18 June, 2020)
+-----------------------------
+ * [New](https://github.com/segmentio/analytics-ios/pull/905) Added global state management; Middleware now receive all context data.
+ * [New](https://github.com/segmentio/analytics-ios/pull/885) change logic for screen naming conventions.
+ * [New](https://github.com/segmentio/analytics-ios/pull/899) Fixed crash on UISceneDelegate applications.
+ * [New](https://github.com/segmentio/analytics-ios/pull/896) Renamed middleware methods to match a.js naming.
+ * [New](https://github.com/segmentio/analytics-ios/pull/904) Added Swift Package Manager support.
+ * [New](https://github.com/segmentio/analytics-ios/pull/902) Updated class names for Swift.
+
+Version 4.0.0-beta.1 *(21st May, 2020)*
+---------------------------------------
+ * [New](https://github.com/segmentio/analytics-ios/pull/892) Makes IDFA support externally/customer driven.
+
+Version 4.0.0-beta.0 *(22nd April, 2020)*
+-----------------------------------------
+ * [New](https://github.com/segmentio/analytics-ios/pull/879) Added integration middleware functionality.
+ 
+Version 3.9.0 *(5th June, 2020)*
+--------------------------------
+ * [New](https://github.com/segmentio/analytics-ios/pull/897) Backport defaultSettings feature from 4.x to 3.x.
+ * [Fix](https://github.com/segmentio/analytics-ios/pull/885) Automatic Screen Tracking with consistent naming conventions
+
+Version 3.8.2 *(21st May, 2020)*
+--------------------------------
+ * [Fix](https://github.com/segmentio/analytics-ios/pull/880) Adds check to make sure cached settings aren't empty before being used.
+
+Version 3.8.1 *(12th May, 2020)*
+--------------------------------
+ * [Fix](https://github.com/segmentio/analytics-ios/pull/880) Fixed a crash in the file storage.
+ * [Fix](https://github.com/segmentio/analytics-ios/pull/884) Adds back erroneously removed build/version data from App Opened event.
+ * [Fix](https://github.com/segmentio/analytics-ios/pull/865) Pushlishes filenames use for storage.
+ * [Fix](https://github.com/segmentio/analytics-ios/pull/771) Fixes incorrect naming in screen reporting.
 
 Version 3.9.0 *(5th June, 2020)*
 --------------------------------
