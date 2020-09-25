@@ -43,7 +43,7 @@
 
     NSDictionary *aCopy = [serializable serializableDeepCopy];
     XCTAssert(aCopy != serializable);
-    
+
     NSDictionary *sub = [serializable objectForKey:@"nested"];
     NSDictionary *subCopy = [aCopy objectForKey:@"nested"];
     XCTAssert(sub != subCopy);
@@ -67,7 +67,7 @@
     NSDictionary *serializable = @{@"test": @1};
     XCTAssertThrows([nonserializable serializableDeepCopy]);
     XCTAssertNoThrow([serializable serializableDeepCopy]);
-    
+
     nonserializable = @{@"test": @[date]};
     XCTAssertThrows([nonserializable serializableDeepCopy]);
 }

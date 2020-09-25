@@ -101,7 +101,6 @@ NSString *const kSEGCachedSettingsFilename = @"analytics.settings.v2.plist";
         self.serialQueue = seg_dispatch_queue_create_specific("io.segment.analytics", DISPATCH_QUEUE_SERIAL);
         self.messageQueue = [[NSMutableArray alloc] init];
         self.httpClient = [[SEGHTTPClient alloc] initWithRequestFactory:configuration.requestFactory];
-
         self.userDefaultsStorage = [[SEGUserDefaultsStorage alloc] initWithDefaults:[NSUserDefaults standardUserDefaults] namespacePrefix:nil crypto:configuration.crypto];
         #if TARGET_OS_TV
             self.fileStorage = [[SEGFileStorage alloc] initWithFolder:[SEGFileStorage cachesDirectoryURL] crypto:configuration.crypto];
@@ -229,7 +228,7 @@ NSString *const kSEGCachedSettingsFilename = @"analytics.settings.v2.plist";
                              arguments:@[ payload ]
                                options:payload.options
                                   sync:false];
-}
+}*/
 
 #pragma mark - Track
 
@@ -373,7 +372,6 @@ NSString *const kSEGCachedSettingsFilename = @"analytics.settings.v2.plist";
         _cachedSettings = [self.fileStorage dictionaryForKey:kSEGCachedSettingsFilename] ?: @{};
 #endif
     }
-
     return _cachedSettings;
 }
 
@@ -384,7 +382,6 @@ NSString *const kSEGCachedSettingsFilename = @"analytics.settings.v2.plist";
         // [@{} writeToURL:settingsURL atomically:YES];
         return;
     }
-
 #if TARGET_OS_TV
     [self.userDefaultsStorage setDictionary:_cachedSettings forKey:kSEGCachedSettingsFilename];
 #else
@@ -499,7 +496,6 @@ NSString *const kSEGCachedSettingsFilename = @"analytics.settings.v2.plist";
     }
     if (options[key]) {
         id value = options[key];
-
         // it's been observed that customers sometimes override this with
         // value's that aren't bool types.
         if ([value isKindOfClass:[NSNumber class]]) {

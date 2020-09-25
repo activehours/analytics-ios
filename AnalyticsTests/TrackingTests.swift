@@ -11,10 +11,10 @@ import Analytics
 import XCTest
 
 class TrackingTests: XCTestCase {
-    
+
     var passthrough: PassthroughMiddleware!
     var analytics: Analytics!
-    
+
     override func setUp() {
         super.setUp()
         let config = AnalyticsConfiguration(writeKey: "QUI5ydwIGeFFTa1IvCBUhxL9PyW5B0jE")
@@ -24,12 +24,12 @@ class TrackingTests: XCTestCase {
         ]
         analytics = Analytics(configuration: config)
     }
-    
+
     override func tearDown() {
         super.tearDown()
         analytics.reset()
     }
-    
+
     func testHandlesIdentify() {
         analytics.identify("testUserId1", traits: [
             "firstName": "Peter"
@@ -40,7 +40,7 @@ class TrackingTests: XCTestCase {
         XCTAssertNotNil(identify?.anonymousId)
         XCTAssertEqual(identify?.traits?["firstName"] as? String, "Peter")
     }
-    
+
     func testHandlesIdentifyWithCustomAnonymousId() {
         analytics.identify("testUserId1", traits: [
             "firstName": "Peter"
@@ -53,7 +53,7 @@ class TrackingTests: XCTestCase {
         XCTAssertEqual(identify?.anonymousId, "a_custom_anonymous_id")
         XCTAssertEqual(identify?.traits?["firstName"] as? String, "Peter")
     }
-    
+
     func testHandlesTrack() {
         analytics.track("User Signup", properties: [
             "method": "SSO"
@@ -69,14 +69,14 @@ class TrackingTests: XCTestCase {
         XCTAssertEqual(payload?.event, "User Signup")
         XCTAssertEqual(payload?.properties?["method"] as? String, "SSO")
     }
-    
+
     func testHandlesAlias() {
         analytics.alias("persistentUserId")
         XCTAssertEqual(passthrough.lastContext?.eventType, EventType.alias)
         let payload = passthrough.lastContext?.payload as? AliasPayload
         XCTAssertEqual(payload?.theNewId, "persistentUserId")
     }
-    
+
     func testHandlesScreen() {
         analytics.screen("Home", properties: [
             "referrer": "Google"
@@ -86,7 +86,7 @@ class TrackingTests: XCTestCase {
         XCTAssertEqual(screen?.name, "Home")
         XCTAssertEqual(screen?.properties?["referrer"] as? String, "Google")
     }
-    
+
     func testHandlesGroup() {
         analytics.group("acme-company", traits: [
             "employees": 2333
@@ -96,7 +96,7 @@ class TrackingTests: XCTestCase {
         XCTAssertEqual(payload?.groupId, "acme-company")
         XCTAssertEqual(payload?.traits?["employees"] as? Int, 2333)
     }
-    
+
     func testHandlesNullValues() {
         analytics.track("null test", properties: [
             "nullTest": NSNull()

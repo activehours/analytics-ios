@@ -244,6 +244,14 @@ NSString *const SEGBuildKeyV2 = @"SEGBuildKeyV2";
   [self track: @"Application Backgrounded"];
 }
 
+- (void)_applicationDidEnterBackground
+{
+  if (!self.configuration.trackApplicationLifecycleEvents) {
+    return;
+  }
+  [self track: @"Application Backgrounded"];
+}
+
 
 #pragma mark - Public API
 
@@ -273,7 +281,6 @@ NSString *const SEGBuildKeyV2 = @"SEGBuildKeyV2";
 - (void)identify:(NSString *)userId traits:(NSDictionary *)traits options:(NSDictionary *)options
 {
     NSCAssert2(userId.length > 0 || traits.count > 0, @"either userId (%@) or traits (%@) must be provided.", userId, traits);
-
     // this is done here to match functionality on android where these are inserted BEFORE being spread out amongst destinations.
     // it will be set globally later when it runs through SEGIntegrationManager.identify.
     NSString *anonId = [options objectForKey:@"anonymousId"];
@@ -550,7 +557,6 @@ NSString *const SEGBuildKeyV2 = @"SEGBuildKeyV2";
     } else {
         payload.timestamp = iso8601FormattedString([NSDate date]);
     }
-
     SEGContext *context = [[[SEGContext alloc] initWithAnalytics:self] modify:^(id<SEGMutableContext> _Nonnull ctx) {
         ctx.eventType = eventType;
         ctx.payload = payload;

@@ -46,6 +46,8 @@ typedef NSString *_Nonnull (^SEGAdSupportBlock)(void);
 @class SEGAnalyticsExperimental;
 @class SEGDestinationMiddleware;
 
+@class SEGAnalyticsExperimental;
+
 /**
  * This object provides a set of properties to control various policies of the analytics client. Other than `writeKey`, these properties can be changed at any time.
  */
